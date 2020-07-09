@@ -2,7 +2,7 @@ package org.senac.gabrielkraetzer.boaviagem.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import org.senac.gabrielkraetzer.boaviagem.data.dataSource.LoginDataSource
+import org.senac.gabrielkraetzer.boaviagem.data.Dao.LoginDao
 import org.senac.gabrielkraetzer.boaviagem.data.repository.LoginRepository
 
 class LoginViewModelFactory : ViewModelProvider.Factory {
@@ -12,7 +12,7 @@ class LoginViewModelFactory : ViewModelProvider.Factory {
         if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
             return LoginViewModel(
                     loginRepository = LoginRepository(
-                        dataSource = LoginDataSource()
+                        dao = LoginDao()
                     )
             ) as T
         }

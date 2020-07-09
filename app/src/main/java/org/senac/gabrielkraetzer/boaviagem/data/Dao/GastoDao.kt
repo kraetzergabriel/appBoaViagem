@@ -1,11 +1,11 @@
-package org.senac.gabrielkraetzer.boaviagem.data.dataSource
+package org.senac.gabrielkraetzer.boaviagem.data.Dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import org.senac.gabrielkraetzer.boaviagem.data.model.Gasto
 
 @Dao
-interface GastoDataSource {
+interface GastoDao {
 
     @Query("select * from gasto order by id asc")
     fun getGasto() : LiveData<List<Gasto>>

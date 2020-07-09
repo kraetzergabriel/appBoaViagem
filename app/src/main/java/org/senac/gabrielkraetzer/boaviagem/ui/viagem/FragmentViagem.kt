@@ -1,4 +1,4 @@
-package org.senac.gabrielkraetzer.boaviagem.fragments
+package org.senac.gabrielkraetzer.boaviagem.ui.viagem
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import org.senac.gabrielkraetzer.boaviagem.R
 
-class FragmentGasto : Fragment() {
+class FragmentViagem : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_viagem, container, false)
+        return inflater.inflate(R.layout.fragment_gasto, container, false)
     }
 }

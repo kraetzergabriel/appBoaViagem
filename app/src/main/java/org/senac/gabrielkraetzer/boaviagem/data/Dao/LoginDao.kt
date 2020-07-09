@@ -1,15 +1,15 @@
-package org.senac.gabrielkraetzer.boaviagem.data.dataSource
+package org.senac.gabrielkraetzer.boaviagem.data.Dao
 
 import org.senac.gabrielkraetzer.boaviagem.data.Result
 import org.senac.gabrielkraetzer.boaviagem.data.model.Login
 import java.io.IOException
 
-class LoginDataSource {
+class LoginDao {
 
     fun login(username: String, password: String): Result<Login> {
         try {
-            // TODO: handle loggedInUser authentication
-            val fakeUser = Login(java.util.UUID.randomUUID().toString(), "Login")
+
+            val fakeUser = Login("", "Login")
             return Result.Success(
                 fakeUser
             )

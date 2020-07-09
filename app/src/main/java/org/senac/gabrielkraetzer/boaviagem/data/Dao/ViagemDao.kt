@@ -1,11 +1,11 @@
-package org.senac.gabrielkraetzer.boaviagem.data.dataSource
+package org.senac.gabrielkraetzer.boaviagem.data.Dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import org.senac.gabrielkraetzer.boaviagem.data.model.Viagem
 
 @Dao
-interface ViagemDataSource {
+interface ViagemDao {
 
     @Query("select * from viagem order by id asc")
     fun getViagem() : LiveData<List<Viagem>>
@@ -21,4 +21,7 @@ interface ViagemDataSource {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update(viagem: Viagem)
+
+    @Delete()
+    suspend fun delete(viagem: Viagem)
 }

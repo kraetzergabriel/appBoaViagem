@@ -17,4 +17,6 @@
     <string name="data_da_partida">Data da Partida</string>
     <string name="orcamento">Orçamento</string>
     <string name="nova_viagem">Nova Viagem</string>
+    <string name="viagens">Viagens</string>
+    <string name="periodoViagem"></string>
 </resources>

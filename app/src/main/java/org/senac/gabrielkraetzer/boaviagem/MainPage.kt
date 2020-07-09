@@ -5,8 +5,8 @@ import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import org.senac.gabrielkraetzer.boaviagem.fragments.FragmentGasto
-import org.senac.gabrielkraetzer.boaviagem.fragments.FragmentViagem
+import org.senac.gabrielkraetzer.boaviagem.ui.gasto.FragmentGasto
+import org.senac.gabrielkraetzer.boaviagem.ui.viagem.FragmentViagem
 
 class MainPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {

@@ -1,10 +1,10 @@
 package org.senac.gabrielkraetzer.boaviagem.data.repository
 
 import org.senac.gabrielkraetzer.boaviagem.data.Result
-import org.senac.gabrielkraetzer.boaviagem.data.dataSource.LoginDataSource
+import org.senac.gabrielkraetzer.boaviagem.data.Dao.LoginDao
 import org.senac.gabrielkraetzer.boaviagem.data.model.Login
 
-class LoginRepository(val dataSource: LoginDataSource) {
+class LoginRepository(val dao: LoginDao) {
 
     var user: Login? = null
         private set
@@ -18,11 +18,11 @@ class LoginRepository(val dataSource: LoginDataSource) {
 
     fun logout() {
         user = null
-        dataSource.logout()
+        dao.logout()
     }
 
     fun login(username: String, password: String): Result<Login> {
-        val result = dataSource.login(username, password)
+        val result = dao.login(username, password)
 
         if (result is Result.Success) {
             setLoggedInUser(result.data)
