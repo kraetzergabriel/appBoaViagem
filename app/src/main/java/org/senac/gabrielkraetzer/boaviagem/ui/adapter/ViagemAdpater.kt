@@ -10,7 +10,6 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import org.senac.gabrielkraetzer.boaviagem.R
 import org.senac.gabrielkraetzer.boaviagem.data.model.Viagem
-import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter
 
 class ViagemAdpater() : RecyclerView.Adapter<ViagemAdpater.ViagemViewHolder>() {
@@ -18,6 +17,8 @@ class ViagemAdpater() : RecyclerView.Adapter<ViagemAdpater.ViagemViewHolder>() {
     var viagens = emptyList<Viagem>()
 
     var onItemClick: ((Viagem) -> Unit)? = null
+
+    var onExcluir: ((Viagem) -> Boolean)? = null
 
     inner class ViagemViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView), View.OnCreateContextMenuListener {
         var itemConsultaViagemDesc1 = itemView.findViewById<TextView>(R.id.itemConsultaViagemDesc1)
@@ -36,7 +37,12 @@ class ViagemAdpater() : RecyclerView.Adapter<ViagemAdpater.ViagemViewHolder>() {
             v: View?,
             menuInfo: ContextMenu.ContextMenuInfo?
         ) {
+            menu?.setHeaderTitle("Opções")
+            val excluir = menu?.add("Excluir")
 
+            excluir?.setOnMenuItemClickListener {
+                onExcluir?.invoke(viagens.get(adapterPosition)) ?: false
+            }
         }
     }
 
@@ -60,5 +66,10 @@ class ViagemAdpater() : RecyclerView.Adapter<ViagemAdpater.ViagemViewHolder>() {
 
         holder.itemConsultaViagemDesc1.text = viagem.destino
         holder.itemConsultaViagemDesc2.text = "${formatacao?.format(viagem.dataChegada)} a ${formatacao?.format(viagem.dataPartida)}"
+    }
+
+    internal fun setViagens(viagens : List<Viagem>){
+        this.viagens = viagens
+        notifyDataSetChanged()
     }
 }
