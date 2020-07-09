@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.navGraphViewModels
 import org.senac.gabrielkraetzer.boaviagem.R
 import org.senac.gabrielkraetzer.boaviagem.databinding.ConsultaViagemDataBinding
+import org.senac.gabrielkraetzer.boaviagem.ui.adapter.ViagemAdpater
 
 class ConsultaViagem : Fragment() {
 
@@ -28,7 +29,11 @@ class ConsultaViagem : Fragment() {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    private bindListViagens(binding : ConsultaViagemDataBinding){
+    private fun bindListViagens(binding : ConsultaViagemDataBinding){
+        val adapter = ViagemAdpater()
 
+        binding?.let {
+
+        }
     }
 }
