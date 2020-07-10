@@ -1,7 +1,7 @@
 package org.senac.gabrielkraetzer.boaviagem.data.repository
 
 import org.senac.gabrielkraetzer.boaviagem.data.Result
-import org.senac.gabrielkraetzer.boaviagem.data.Dao.LoginDao
+import org.senac.gabrielkraetzer.boaviagem.data.dao.LoginDao
 import org.senac.gabrielkraetzer.boaviagem.data.model.Login
 
 class LoginRepository(val dao: LoginDao) {

@@ -3,12 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_principal"
-    app:startDestination="@id/consultaViagem"
-    tools:ignore="UnusedNavigation">
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/consultaViagem">
+
 
     <fragment
         android:id="@+id/consultaViagem"
         android:name="org.senac.gabrielkraetzer.boaviagem.ui.viagem.ConsultaViagem"
-        android:label="consultaViagem" />
+        android:label="ConsultaViagem"
+        tools:layout="@layout/consulta_viagem">
+        <action
+            android:id="@+id/action_consultaViagem_to_fragmentViagem"
+            app:destination="@id/fragmentViagem" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/fragmentViagem"
+        android:name="org.senac.gabrielkraetzer.boaviagem.ui.viagem.FragmentViagem"
+        android:label="FragmentViagem"
+        tools:layout="@layout/fragment_viagem"/>
 </navigation>

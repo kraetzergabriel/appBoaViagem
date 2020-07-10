@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_gasto"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/fragmentGasto2">
+
+    <fragment
+        android:id="@+id/fragmentGasto2"
+        android:name="org.senac.gabrielkraetzer.boaviagem.ui.gasto.FragmentGasto"
+        android:label="FragmentGasto"
+        tools:layout="@layout/fragment_gasto"/>
+    <activity
+        android:id="@+id/consultaGasto"
+        android:name="org.senac.gabrielkraetzer.boaviagem.ui.gasto.ConsultaGasto"
+        android:label="consulta_gasto"
+        tools:layout="@layout/consulta_gasto">
+        <action
+            android:id="@+id/action_activityGasto_to_fragment_gasto"
+            app:destination="@id/fragmentViagem" />
+
+    </activity>
+
+</navigation>

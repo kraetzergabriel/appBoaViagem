@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/consultaViagem"
+    <item android:id="@+id/nav_consultaViagem"
         android:title="@string/viagens"/>
 
-    <item android:id="@+id/fragmentGasto"
+    <item android:id="@+id/nav_fragmentGasto"
         android:title="@string/gasto" />
 
-    <item android:id="@+id/fragmentViagem"
+    <item android:id="@+id/nav_fragmentViagem"
         android:title="@string/nova_viagem"/>
 </menu>

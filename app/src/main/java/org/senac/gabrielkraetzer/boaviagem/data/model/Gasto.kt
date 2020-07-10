@@ -2,16 +2,17 @@ package org.senac.gabrielkraetzer.boaviagem.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.time.LocalDate
 import java.util.*
 
 @Entity(tableName = "gasto")
 data class Gasto(
-    val tipo : String?,
-    val orcamento : Double?,
+    var tipo : String?,
     val valor : Double?,
-    val data : Date?,
-    val descricao : String?,
-    val local : String?){
+    var data : Date?,
+    var descricao : String?,
+    var local : String?,
+    val idViagem: Int){
 
     @PrimaryKey(autoGenerate = true)
     var id : Int = 0;

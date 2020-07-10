@@ -1,4 +1,4 @@
-package org.senac.gabrielkraetzer.boaviagem.data.Dao
+package org.senac.gabrielkraetzer.boaviagem.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -10,6 +10,9 @@ interface GastoDao {
     @Query("select * from gasto order by id asc")
     fun getGasto() : LiveData<List<Gasto>>
 
+    @Query("select * from gasto where idViagem = :idViagem")
+    fun getGastoByIdViagem(idViagem : Int): LiveData<List<Gasto>>;
+
     @Query("select * from gasto where id = :id")
     fun getGastoById(id : Int) : LiveData<Gasto>
 
@@ -18,4 +21,7 @@ interface GastoDao {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update(gasto: Gasto)
+
+    @Delete()
+    suspend fun delete(gasto: Gasto)
 }

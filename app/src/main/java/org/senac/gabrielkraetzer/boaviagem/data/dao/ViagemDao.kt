@@ -1,4 +1,4 @@
-package org.senac.gabrielkraetzer.boaviagem.data.Dao
+package org.senac.gabrielkraetzer.boaviagem.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

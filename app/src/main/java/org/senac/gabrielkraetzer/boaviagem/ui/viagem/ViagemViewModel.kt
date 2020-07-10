@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.senac.gabrielkraetzer.boaviagem.data.AppDataBase
-import org.senac.gabrielkraetzer.boaviagem.data.Dao.ViagemDao
+import org.senac.gabrielkraetzer.boaviagem.data.dao.ViagemDao
 import org.senac.gabrielkraetzer.boaviagem.data.model.Viagem
 
 class ViagemViewModel(application: Application) : AndroidViewModel(application) {
@@ -24,6 +24,16 @@ class ViagemViewModel(application: Application) : AndroidViewModel(application) 
 
     fun select(viagem: Viagem) {
         this.selected.value = viagem
+    }
+
+    fun salvar(viagem: Viagem) {
+        viewModelScope.launch {
+            if (viagem.id == 0) {
+                viagemDao.insert(viagem)
+            } else {
+                viagemDao.update(viagem)
+            }
+        }
     }
 
     fun delete(viagem: Viagem) {

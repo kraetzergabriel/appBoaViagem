@@ -1,22 +1,25 @@
 package org.senac.gabrielkraetzer.boaviagem.ui.viagem
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.navGraphViewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.senac.gabrielkraetzer.boaviagem.R
+import org.senac.gabrielkraetzer.boaviagem.data.model.Viagem
 import org.senac.gabrielkraetzer.boaviagem.databinding.ConsultaViagemBinding
 import org.senac.gabrielkraetzer.boaviagem.ui.adapter.ViagemAdpater
+import org.senac.gabrielkraetzer.boaviagem.ui.gasto.ConsultaGasto
 
 class ConsultaViagem : Fragment() {
 
-    private val consultaViagemViewModel : ViagemViewModel by navGraphViewModels(R.id.nav_principal)
+    private val consultaViagemViewModel : ViagemViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,6 +52,22 @@ class ConsultaViagem : Fragment() {
                     adapter.setViagens(it)
                 }
             })
+
+            it.floatingButtonNovaViagem?.setOnClickListener{
+                consultaViagemViewModel.select(Viagem("", 0, null, null, 0,0.0))
+
+                Navigation.findNavController(it).navigate(R.id.action_consultaViagem_to_fragmentViagem)
+            }
+
+            adapter.onItemClick.let {
+                it.apply {
+                    val intent = Intent(context, ConsultaGasto::class.java).apply {
+                        putExtra("IDVIAGEM", this@ConsultaViagem.id)
+                    }
+                    startActivity(intent)
+                }
+                true
+            }
         }
     }
 }

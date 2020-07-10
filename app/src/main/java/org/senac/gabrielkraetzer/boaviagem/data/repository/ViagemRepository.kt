@@ -1,4 +1,4 @@
 package org.senac.gabrielkraetzer.boaviagem.data.repository
 
-class ViagemRepository {
+class ViagemRepository (var idViagem : Int){
 }

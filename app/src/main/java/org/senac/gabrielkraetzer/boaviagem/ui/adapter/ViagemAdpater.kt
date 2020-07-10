@@ -10,7 +10,9 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import org.senac.gabrielkraetzer.boaviagem.R
 import org.senac.gabrielkraetzer.boaviagem.data.model.Viagem
+import java.text.DateFormat
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class ViagemAdpater() : RecyclerView.Adapter<ViagemAdpater.ViagemViewHolder>() {
 
@@ -57,15 +59,15 @@ class ViagemAdpater() : RecyclerView.Adapter<ViagemAdpater.ViagemViewHolder>() {
         return viagens.size
     }
 
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViagemViewHolder, position: Int) {
         var viagem = viagens.get(position)
 
-        var formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        val formatacao = DateFormat.getDateInstance()
 
         holder.itemConsultaViagemDesc1.text = viagem.destino
-        holder.itemConsultaViagemDesc2.text = "${formatacao?.format(viagem.dataChegada)} a ${formatacao?.format(viagem.dataPartida)}"
+        holder.itemConsultaViagemDesc2.text = "${formatacao.format(viagem.dataChegada)} a ${formatacao.format(viagem.dataPartida)}"
+        holder.itemConsultaViagemDesc3.text = "Gasto Total ${String.format("%.2f",viagem.orcamento)}"
     }
 
     internal fun setViagens(viagens : List<Viagem>){

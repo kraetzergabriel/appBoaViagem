@@ -11,7 +11,6 @@
 
     </data>
     <LinearLayout
-        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -28,12 +27,14 @@
                 android:scrollbars="vertical"/>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fb_novo"
+                android:id="@+id/floatingButtonNovaViagem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
-                android:clickable="true" />
+                android:clickable="true"
+                android:src="@drawable/ic_add_foreground" />
         </FrameLayout>
+
     </LinearLayout>
 
 </layout>

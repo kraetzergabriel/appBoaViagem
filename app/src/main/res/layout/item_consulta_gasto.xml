@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:layout_gravity="right"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemConsultaGastoDesc1"
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Desc2"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/itemConsultaGastoDesc2"
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="desc3"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
